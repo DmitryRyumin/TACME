@@ -82,9 +82,28 @@
 
 ## Citation
 
-The accompanying research publication is currently being prepared.
+If you use TACME in your research or build upon this project, please cite our EMNLP 2026 Findings paper:
 
-Citation information will be added after publication.
+**Elena Ryumina, Alexandr Axyonov, and Dmitry Ryumin (2026).**
+_TACME: Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding._
+Findings of the Association for Computational Linguistics: EMNLP 2026, pp. 20210–20234.
+
+[Paper (ACL Anthology)](https://aclanthology.org/2026.findings-emnlp.957/) · [PDF](https://aclanthology.org/2026.findings-emnlp.957.pdf) · [DOI](https://doi.org/10.18653/2026.findings-emnlp.957)
+
+```bibtex
+@inproceedings{ryumina-etal-2026-tacme,
+    title = "{TACME}: Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding",
+    author = "Ryumina, Elena and Axyonov, Alexandr and Ryumin, Dmitry",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {EMNLP} 2026",
+    month = oct,
+    year = "2026",
+    address = "Budapest, Hungary",
+    publisher = "Association for Computational Linguistics",
+    pages = "20210--20234",
+    url = "https://aclanthology.org/2026.findings-emnlp.957/",
+    doi = "10.18653/2026.findings-emnlp.957"
+}
+```
 
 ---
 
