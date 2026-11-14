@@ -33,7 +33,7 @@
   </tr>
   <tr>
     <td width="150"><strong>Runtime</strong></td>
-    <td><img src="https://img.shields.io/badge/Gradio-6.31.0%2B-F97316?style=flat-square" alt="Gradio"> <img src="https://img.shields.io/badge/PyTorch-2.15.0%2B-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch"> <img src="https://img.shields.io/badge/TorchCodec-0.17.0%2B-EE4C2C?style=flat-square" alt="TorchCodec"> <img src="https://img.shields.io/badge/Transformers-5.22.1%2B-FFD21E?style=flat-square" alt="Transformers"> <img src="https://img.shields.io/badge/Safetensors-0.8.0%2B-7C3AED?style=flat-square" alt="Safetensors"> <img src="https://img.shields.io/badge/packaging-26.3%2B-6B7280?style=flat-square" alt="packaging"> <img src="https://img.shields.io/badge/psutil-7.2.2%2B-4B5563?style=flat-square" alt="psutil"> <img src="https://img.shields.io/badge/Docker-enabled-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker"> <img src="https://img.shields.io/badge/uv-0.12.13%2B-261230?style=flat-square" alt="uv"> <img src="https://img.shields.io/badge/Node.js-26.8.2-5FA04E?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/npm-11.20.0-CB3837?style=flat-square&amp;logo=npm&amp;logoColor=white" alt="npm"></td>
+    <td><img src="https://img.shields.io/badge/Gradio-6.32.0%2B-F97316?style=flat-square" alt="Gradio"> <img src="https://img.shields.io/badge/PyTorch-2.15.0%2B-EE4C2C?style=flat-square&amp;logo=pytorch&amp;logoColor=white" alt="PyTorch"> <img src="https://img.shields.io/badge/TorchCodec-0.17.0%2B-EE4C2C?style=flat-square" alt="TorchCodec"> <img src="https://img.shields.io/badge/Transformers-5.23.0%2B-FFD21E?style=flat-square" alt="Transformers"> <img src="https://img.shields.io/badge/Safetensors-0.8.0%2B-7C3AED?style=flat-square" alt="Safetensors"> <img src="https://img.shields.io/badge/packaging-26.3%2B-6B7280?style=flat-square" alt="packaging"> <img src="https://img.shields.io/badge/psutil-7.2.2%2B-4B5563?style=flat-square" alt="psutil"> <img src="https://img.shields.io/badge/Docker-enabled-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white" alt="Docker"> <img src="https://img.shields.io/badge/uv-0.12.13%2B-261230?style=flat-square" alt="uv"> <img src="https://img.shields.io/badge/Node.js-26.8.2-5FA04E?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white" alt="Node.js"> <img src="https://img.shields.io/badge/npm-11.20.0-CB3837?style=flat-square&amp;logo=npm&amp;logoColor=white" alt="npm"></td>
   </tr>
   <tr>
     <td width="150"><strong>Build&nbsp;Tooling</strong></td>
@@ -41,7 +41,7 @@
   </tr>
   <tr>
     <td width="150"><strong>Code&nbsp;Quality</strong></td>
-    <td><img src="https://img.shields.io/badge/Ruff-0.17.3%2B-D7FF64?style=flat-square" alt="Ruff"> <img src="https://img.shields.io/badge/mypy-2.4.1%2B-2A6DB2?style=flat-square" alt="mypy"> <img src="https://img.shields.io/badge/deptry-0.25.1%2B-6B7280?style=flat-square" alt="deptry"> <img src="https://img.shields.io/badge/pre--commit-4.7.0%2B-FAB040?style=flat-square" alt="pre-commit"> <img src="https://img.shields.io/badge/Stylelint-17.16.0-263238?style=flat-square" alt="Stylelint"> <img src="https://img.shields.io/badge/Prettier-3.9.10-F7B93E?style=flat-square&amp;logo=prettier&amp;logoColor=black" alt="Prettier"></td>
+    <td><img src="https://img.shields.io/badge/Ruff-0.17.5%2B-D7FF64?style=flat-square" alt="Ruff"> <img src="https://img.shields.io/badge/mypy-2.4.1%2B-2A6DB2?style=flat-square" alt="mypy"> <img src="https://img.shields.io/badge/deptry-0.25.1%2B-6B7280?style=flat-square" alt="deptry"> <img src="https://img.shields.io/badge/pre--commit-4.7.0%2B-FAB040?style=flat-square" alt="pre-commit"> <img src="https://img.shields.io/badge/Stylelint-17.16.0-263238?style=flat-square" alt="Stylelint"> <img src="https://img.shields.io/badge/Prettier-3.9.10-F7B93E?style=flat-square&amp;logo=prettier&amp;logoColor=black" alt="Prettier"></td>
   </tr>
   <tr>
     <td width="150"><strong>Repository</strong></td>
@@ -53,7 +53,7 @@
   </tr>
   <tr>
     <td width="150"><strong>Application</strong></td>
-    <td><a href="https://dmitryryumin-tacme.hf.space"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Space-TACME-FFD21E?style=flat-square" alt="TACME on Hugging Face"></a></td>
+    <td><a href="https://dmitryryumin-tacme.hf.space"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Space-TACME-FFD21E?style=flat-square" alt="TACME on Hugging Face"></a> <a href="https://huggingface.co/DmitryRyumin/TACME"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model-TACME-FFD21E?style=flat-square" alt="TACME model on Hugging Face"></a></td>
   </tr>
 </table>
 <!-- prettier-ignore-end -->

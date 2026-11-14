@@ -18,6 +18,7 @@ from scripts.readme.badge_elements import (
 )
 from scripts.readme.constants import (
     DOCKERFILE_PATH,
+    HUGGING_FACE_OWNER,
     PACKAGE_JSON_PATH,
     PRETTIER_IGNORE_END,
     PRETTIER_IGNORE_START,
@@ -405,6 +406,15 @@ def _build_application_badges(
                 message=metadata.display_name,
                 color="FFD21E",
                 alt=(f"{metadata.display_name} on Hugging Face"),
+            ),
+        ),
+        _linked_badge(
+            f"https://huggingface.co/{HUGGING_FACE_OWNER}/{metadata.display_name}",
+            Badge(
+                label="🤗 Model",
+                message=metadata.display_name,
+                color="FFD21E",
+                alt=(f"{metadata.display_name} model on Hugging Face"),
             ),
         ),
     ]
