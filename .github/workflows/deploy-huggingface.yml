@@ -1,0 +1,87 @@
+name: Deploy TACME to Hugging Face CPU
+
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - ".github/workflows/deploy-huggingface.yml"
+            - ".dockerignore"
+            - "Dockerfile"
+            - "LICENSE"
+            - "app.py"
+            - "app.css"
+            - "config.toml"
+            - "pyproject.toml"
+            - "uv.lock"
+            - "tacme/**"
+            - "static/**"
+            - "deploy/huggingface/**"
+    workflow_dispatch:
+
+concurrency:
+    group: deploy-hugging-face-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+
+env:
+    HF_REPO_ID: DmitryRyumin/TACME
+    HF_REPO_TYPE: space
+    DEPLOY_DIR: .huggingface-deploy
+
+jobs:
+    deploy:
+        name: Deploy CPU Docker Space
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7.0.1
+
+            - name: Set up Python
+              uses: actions/setup-python@v7.0.0
+              with:
+                  python-version: "3.14"
+
+            - name: Install Hugging Face CLI
+              run: |
+                  python -m pip install --disable-pip-version-check "huggingface-hub==1.29.0"
+
+            - name: Prepare Docker Space files
+              shell: bash
+              run: |
+                  set -euo pipefail
+
+                  rm -rf "${DEPLOY_DIR}"
+                  mkdir -p "${DEPLOY_DIR}/deploy/huggingface"
+
+                  cp .dockerignore Dockerfile LICENSE app.py app.css \
+                    config.toml pyproject.toml uv.lock "${DEPLOY_DIR}/"
+
+                  cp -R tacme "${DEPLOY_DIR}/tacme"
+                  cp -R static "${DEPLOY_DIR}/static"
+
+                  cp deploy/huggingface/entrypoint.sh \
+                    "${DEPLOY_DIR}/deploy/huggingface/entrypoint.sh"
+                  cp deploy/huggingface/README.md "${DEPLOY_DIR}/README.md"
+
+                  echo "Deployment contents:"
+                  find "${DEPLOY_DIR}" -type f -print | sort
+
+            - name: Deploy to Hugging Face Space
+              env:
+                  HF_TOKEN: ${{ secrets.HF_TOKEN }}
+              shell: bash
+              run: |
+                  set -euo pipefail
+                  : "${HF_TOKEN:?Set the HF_TOKEN GitHub Actions secret with write access to the Space}"
+                  hf upload \
+                    "${HF_REPO_ID}" \
+                    "${DEPLOY_DIR}" \
+                    . \
+                    --repo-type "${HF_REPO_TYPE}" \
+                    --token "${HF_TOKEN}" \
+                    --commit-message "Deploy TACME CPU from GitHub ${GITHUB_SHA::7}"

@@ -14,6 +14,7 @@ ENV PYTHONUNBUFFERED=1 \
     HF_HOME=/home/user/.cache/huggingface \
     HF_HUB_DISABLE_TELEMETRY=1 \
     TOKENIZERS_PARALLELISM=false \
+    CUDA_VISIBLE_DEVICES=-1 \
     BROWSER_PATH=/usr/bin/chromium \
     HOME=/home/user \
     PATH="/app/.venv/bin:$PATH"
@@ -42,4 +43,4 @@ COPY --chown=user:user . .
 
 EXPOSE 7860
 
-CMD ["python", "app.py"]
+CMD ["sh", "deploy/huggingface/entrypoint.sh"]

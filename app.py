@@ -131,7 +131,7 @@ def main() -> None:
     ).launch(
         theme="default",
         css_paths=app_css_path,
-        share=True,
+        share=not is_hugging_face_space(),
         server_name=server_name,
         server_port=server_port,
         footer_links=[],
