@@ -52,7 +52,7 @@
     <td><a href="https://github.com/DmitryRyumin/TACME/stargazers"><img src="https://img.shields.io/github/stars/DmitryRyumin/TACME?style=flat-square" alt="Stars"></a> <a href="https://github.com/DmitryRyumin/TACME/forks"><img src="https://img.shields.io/github/forks/DmitryRyumin/TACME?style=flat-square" alt="Forks"></a> <a href="https://github.com/DmitryRyumin/TACME/issues"><img src="https://img.shields.io/github/issues/DmitryRyumin/TACME?style=flat-square" alt="Issues"></a></td>
   </tr>
   <tr>
-    <td width="150"><strong>Application</strong></td>
+    <td width="150"><strong>Hugging&nbsp;Face</strong></td>
     <td><a href="https://dmitryryumin-tacme.hf.space"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Space-TACME-FFD21E?style=flat-square" alt="TACME on Hugging Face"></a> <a href="https://huggingface.co/DmitryRyumin/TACME"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Model-TACME-FFD21E?style=flat-square" alt="TACME model on Hugging Face"></a></td>
   </tr>
 </table>
