@@ -1,0 +1,16 @@
+repos:
+    - repo: local
+      hooks:
+          - id: tacme-fix
+            name: TACME autofix
+            entry: just fix
+            language: system
+            pass_filenames: false
+            always_run: true
+
+          - id: tacme-check
+            name: TACME checks
+            entry: just check
+            language: system
+            pass_filenames: false
+            always_run: true

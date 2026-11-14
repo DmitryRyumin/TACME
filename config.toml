@@ -1,0 +1,541 @@
+[App]
+TITLE = "TACME"
+VERSION = "1.0.0"
+DESCRIPTION = "Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding."
+
+
+[Languages]
+CHOICES = [ "English", "Русский" ]
+DEFAULT = "English"
+
+
+[StaticPaths]
+IMAGES = "static/images"
+EXAMPLES = "examples"
+
+
+[Images]
+LANGUAGES = [ "flags/en.svg", "flags/ru.svg" ]
+
+[Examples]
+VIDEO = [
+    "CMU-MOSEI_01.mp4",
+    "CMU-MOSEI_02.mp4",
+    "CMU-MOSEI_03.mp4",
+    "CMU-MOSEI_04.mp4",
+    "FIv2_01.mp4",
+    "FIv2_02.mp4",
+    "FIv2_03.mp4",
+    "FIv2_04.mp4",
+    "BAH_01.mp4",
+    "BAH_02.mp4",
+    "BAH_03.mp4",
+    "BAH_04.mp4",
+]
+
+[Tabs]
+APP = [ "Application", "Приложение" ]
+ABOUT = [ "About", "О TACME" ]
+AUTHORS = [ "About the Authors", "Об авторах" ]
+REQUIREMENTS = [ "Requirements", "Среда и зависимости" ]
+
+
+[TabCreators]
+APP = "create_application_tab"
+ABOUT = "create_about_tab"
+AUTHORS = "create_authors_tab"
+REQUIREMENTS = "create_requirements_tab"
+
+
+[TabStates]
+APP = "enabled"
+ABOUT = "enabled"
+AUTHORS = "enabled"
+REQUIREMENTS = "enabled"
+
+
+[Texts]
+APP_TITLE = [ "TACME", "TACME" ]
+APP_SUBTITLE = [
+    "Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding",
+    "Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding",
+]
+
+ABOUT_TITLE = [ "About TACME", "О TACME" ]
+ABOUT_DESCRIPTION = [ "Architecture and research scope of TACME.", "Архитектура и исследовательская область TACME." ]
+
+REQUIREMENTS_TITLE = [ "Requirements", "Среда и зависимости" ]
+
+EXAMPLES_PLACEHOLDER = [ "Example video samples will be added later.", "Примеры видеозаписей будут добавлены позже." ]
+
+STATUS_READY = [
+    "Ready. Upload or record a video sample to start.",
+    "Готово. Загрузите или запишите видео, чтобы начать.",
+]
+
+STATUS_VIDEO_READY = [
+    "Video sample is ready. Select at least one task and run the analysis.",
+    "Видео готово. Выберите хотя бы одну задачу и запустите анализ.",
+]
+
+STATUS_NO_TASKS = [
+    "Select at least one task to run the analysis.",
+    "Выберите хотя бы одну задачу, чтобы запустить анализ.",
+]
+
+STATUS_ANALYSIS_RUNNING = [ "TACME analysis is running.", "Выполняется анализ TACME." ]
+
+STATUS_ANALYSIS_COMPLETED = [ "Analysis completed successfully.", "Анализ успешно завершен." ]
+
+DETAILS_BUTTON = [ "Processing details", "Подробности анализа" ]
+DETAILS_CHIP = [ "Details · {time} s · RTF {rtf} · {device}", "Подробнее · {time} с · RTF {rtf} · {device}" ]
+DETAILS_CHIP_NO_RTF = [ "Details · {time} s · {device}", "Подробнее · {time} с · {device}" ]
+DETAILS_TITLE = [ "Processing details", "Подробности анализа" ]
+DETAILS_SUBTITLE = [ "Measured stages of the most recent TACME analysis", "Измеренные этапы последнего анализа TACME" ]
+DETAILS_TOTAL_TIME = [ "Total analysis time", "Общее время анализа" ]
+DETAILS_VIDEO_DURATION = [ "Video duration", "Длительность видео" ]
+DETAILS_DEVICE = [ "Device", "Устройство" ]
+DETAILS_STAGES = [ "Processing stages", "Этапы обработки" ]
+DETAILS_PERCENT = [ "of total time", "от общего времени" ]
+DETAILS_OTHER = [ "Other processing overhead", "Прочие затраты времени" ]
+DETAILS_UNAVAILABLE = [ "Not available", "Нет данных" ]
+DETAILS_NOTE = [
+    "Durations are measured for actual inference stages. Total time covers the inference pipeline; UI rendering and queue wait are excluded.",
+    "Показана фактическая длительность этапов. Общее время включает вычислительный конвейер; отрисовка интерфейса и ожидание в очереди не учитываются.",
+]
+
+DETAILS_LONGEST_STAGE = [ "Longest stage", "Самый длительный этап" ]
+
+PROGRESS_TITLE = [ "Analyzing video", "Анализ видеозаписи" ]
+PROGRESS_WAITING = [ "Preparing inference...", "Подготовка анализа..." ]
+PROGRESS_ACTIVE = [ "Processing...", "Выполняется..." ]
+PROGRESS_PENDING = [ "Pending", "Ожидание" ]
+PROGRESS_COMPLETED = [ "Stages completed", "Завершено этапов" ]
+PROGRESS_ELAPSED = [ "Elapsed", "Прошло времени" ]
+PROGRESS_SECONDS = [ "s", "с" ]
+PROGRESS_NOTE = [
+    "Progress counts completed operations; active-stage progress is not estimated.",
+    "Прогресс учитывает завершенные операции. Время активного этапа не прогнозируется.",
+]
+PROGRESS_STAGE_MEDIA_VALIDATION = [ "Input validation", "Проверка входного файла" ]
+PROGRESS_STAGE_FRAME_SAMPLING = [ "Video decoding and frame sampling", "Декодирование и выбор видеокадров" ]
+PROGRESS_STAGE_CLIP_SCENE = [ "Scene features · CLIP", "Визуальные признаки · CLIP" ]
+PROGRESS_STAGE_WAV2VEC_AUDIO = [ "Audio features · Wav2Vec2", "Акустические признаки · Wav2Vec2" ]
+PROGRESS_STAGE_WHISPER_DECODING = [ "Audio decoding for Whisper", "Декодирование аудио для Whisper" ]
+PROGRESS_STAGE_WHISPER_TRANSCRIPTION = [ "Speech transcription · Whisper", "Транскрипция речи · Whisper" ]
+PROGRESS_STAGE_ROBERTA_TRANSCRIPTION = [ "Text features · EmoRoBERTa", "Текстовые признаки · EmoRoBERTa" ]
+PROGRESS_STAGE_QWEN_BEHAVIOR = [ "Behavior description · Qwen3-VL", "Описание поведения · Qwen3-VL" ]
+PROGRESS_STAGE_ROBERTA_BEHAVIOR = [ "Behavior features · EmoRoBERTa", "Признаки поведения · EmoRoBERTa" ]
+PROGRESS_STAGE_FEATURE_AGGREGATION = [ "Feature aggregation · Mean / STD", "Агрегация признаков · Mean / STD" ]
+PROGRESS_STAGE_TACME_ATTRIBUTION = [ "TACME and Gradient × Input", "TACME и Gradient × Input" ]
+PROGRESS_STAGE_OUTPUT_ADAPTATION = [ "Preparing predictions", "Подготовка результатов" ]
+
+STATUS_ANALYSIS_FAILED = [ "Analysis failed.", "Не удалось выполнить анализ." ]
+
+STATUS_CLEARED = [ "Application state has been cleared.", "Состояние приложения очищено." ]
+
+MEDIA_INFO_UNAVAILABLE = [ "Media information is unavailable for this file.", "Информация о медиафайле недоступна." ]
+
+MEDIA_NO_VIDEO_STREAM = [ "No video stream was found in this file.", "В файле не обнаружен видеопоток." ]
+
+MEDIA_NO_AUDIO_STREAM = [ "No audio stream was found in this file.", "В файле не обнаружен аудиопоток." ]
+
+MEDIA_NO_AUDIO_SHORT = [ "No audio", "Нет аудио" ]
+
+MEDIA_STREAMS_SUMMARY = [ "Video: {video} · Audio: {audio}", "Видео: {video} · Аудио: {audio}" ]
+
+MEDIA_COMPATIBILITY_READY_TITLE = [ "Ready for TACME analysis", "Готово к анализу TACME" ]
+
+MEDIA_COMPATIBILITY_READY = [
+    "All required media streams and basic metadata are available.",
+    "Все необходимые медиапотоки и основные метаданные доступны.",
+]
+
+MEDIA_COMPATIBILITY_NOT_READY_TITLE = [ "Not ready for TACME analysis", "Не готово к анализу TACME" ]
+
+MEDIA_COMPATIBILITY_NOT_READY = [
+    "One or more required media properties are unavailable.",
+    "Одно или несколько обязательных свойств медиафайла недоступны.",
+]
+
+SUMMARY_EMOTION_TEXT = [
+    "The model predicts ‘{primary_label}’ as the most likely emotional state ({primary_probability:.2f}%). ‘{secondary_label}’ ranks second ({secondary_probability:.2f}%).",
+    "Наиболее вероятное эмоциональное состояние по оценке модели — «{primary_label}» ({primary_probability:.2f}%). На втором месте — «{secondary_label}» ({secondary_probability:.2f}%).",
+]
+
+SUMMARY_PERSONALITY_TEXT = [
+    "The highest predicted personality-characteristic scores are for {first} ({first_score:.4f}), {second} ({second_score:.4f}), and {third} ({third_score:.4f}). The lowest score is for {lowest} ({lowest_score:.4f}).",
+    "Наиболее высокие оценки получили {first} ({first_score:.4f}), {second} ({second_score:.4f}) и {third} ({third_score:.4f}). Наименьшую оценку получила {lowest} ({lowest_score:.4f}).",
+]
+
+SUMMARY_AMBIVALENCE_TEXT = [
+    "According to the model, {primary_phrase} is more likely ({primary_probability:.2f}%) than {secondary_short_phrase} ({secondary_probability:.2f}%).",
+    "По оценке модели, {primary_phrase} более вероятно ({primary_probability:.2f}%), чем {secondary_short_phrase} ({secondary_probability:.2f}%).",
+]
+
+SUMMARY_FINAL_EMOTION_TEXT = [
+    "The most likely emotional state is {primary_label_lower} ({primary_probability:.2f}%).",
+    "Наиболее вероятное эмоциональное состояние — {primary_label_lower} ({primary_probability:.2f}%).",
+]
+
+SUMMARY_FINAL_PERSONALITY_TEXT = [
+    "Among the assessed personality characteristics, {first} has the highest model score ({first_score:.4f}).",
+    "Среди персональных качеств личности наиболее высокую оценку получила {first} ({first_score:.4f}).",
+]
+
+SUMMARY_FINAL_AMBIVALENCE_TEXT = [
+    "The predicted probability of {primary_probability_phrase} is {primary_probability:.2f}%.",
+    "Вероятность {primary_probability_phrase} составляет {primary_probability:.2f}%.",
+]
+
+[Labels]
+VIDEO_INPUT = [ "Upload video or record from camera", "Загрузите видео или запишите с камеры" ]
+
+TASKS = [ "Tasks", "Задачи анализа" ]
+
+EXAMPLES = [ "Examples", "Примеры видео" ]
+
+RUN_ANALYSIS = [ "Run analysis", "Запустить анализ" ]
+
+CLEAR = [ "Clear", "Очистить" ]
+
+RESULTS = [ "Results", "Результаты" ]
+
+KEY_VIDEO_MOMENTS = [ "Key video moments", "Наиболее значимые кадры на видео" ]
+
+AUDIO_WAVEFORM = [ "Audio waveform", "Осциллограмма звукового сигнала" ]
+WAVEFORM_TIME = [ "Time", "Время" ]
+WAVEFORM_AMPLITUDE = [ "Amplitude", "Амплитуда" ]
+WAVEFORM_MAXIMUM = [ "Maximum", "Максимум" ]
+WAVEFORM_MINIMUM = [ "Minimum", "Минимум" ]
+
+SPEECH_TRANSCRIPTION = [ "Speech transcription", "Распознавание речи" ]
+TRANSCRIPTION_LANGUAGE = [ "Language", "Язык" ]
+TRANSCRIPTION_LANGUAGE_CONFIDENCE = [ "Language confidence", "Уверенность в определении языка" ]
+TRANSCRIPT = [ "Transcript", "Распознанный текст" ]
+TRANSCRIPTION_COPY = [ "Copy", "Копировать" ]
+TRANSCRIPTION_COPIED = [ "Copied", "Скопировано" ]
+TRANSCRIPTION_UNAVAILABLE = [ "Unavailable", "Недоступно" ]
+
+OBSERVED_BEHAVIOR = [ "Observed behavior", "Описание поведения человека и обстановки на видео" ]
+BEHAVIOR_MODEL_TYPE = [ "Visual-language model", "Визуально-языковая модель" ]
+BEHAVIOR_VISUAL_DESCRIPTION = [ "Observable visual description", "Текстовое описание" ]
+BEHAVIOR_SAMPLING = [ "Sampling", "Частота отбора кадров" ]
+BEHAVIOR_MAX_FRAMES = [ "Max frames", "Максимальное число кадров" ]
+BEHAVIOR_COPY = [ "Copy", "Копировать" ]
+BEHAVIOR_COPIED = [ "Copied", "Скопировано" ]
+
+PREDICTIONS = [ "Predictions", "Предсказания модели" ]
+AMBIVALENCE_ABSENCE = [ "Absence", "Отсутствие" ]
+AMBIVALENCE_PRESENCE = [ "Presence", "Наличие" ]
+PERSONALITY_OPE = [ "Openness to experience", "Открытость опыту" ]
+PERSONALITY_CON = [ "Conscientiousness", "Добросовестность" ]
+PERSONALITY_EXT = [ "Extraversion", "Экстраверсия" ]
+PERSONALITY_AGR = [ "Agreeableness", "Доброжелательность" ]
+PERSONALITY_NNEU = [ "Emotional stability", "Эмоциональная стабильность" ]
+
+FEATURE_ATTRIBUTION = [ "Feature attribution", "Вклад признаков" ]
+ATTRIBUTION_SECTION_TITLE = [ "Assessment of Data Contributions to Predictions", "Оценка вклада данных в предсказание" ]
+ATTRIBUTION_TASK = [ "Recognition tasks", "Задачи распознавания" ]
+ATTRIBUTION_TARGET = [ "Target", "Целевой выход" ]
+ATTRIBUTION_VIEW = [ "Chart metrics", "Показатели на графике" ]
+ATTRIBUTION_VIEW_MEAN_STD = [
+    "Mean value and standard deviation",
+    "Среднее значение (СЗ) и стандартное отклонение (СО)",
+]
+ATTRIBUTION_VIEW_MEAN = [ "Mean value", "Среднее значение (СЗ)" ]
+ATTRIBUTION_VIEW_STD = [ "Standard deviation", "Стандартное отклонение (СО)" ]
+ATTRIBUTION_MEAN = [ "Mean", "СЗ" ]
+ATTRIBUTION_STD = [ "SD", "СО" ]
+ATTRIBUTION_LINGUISTIC = [ "Linguistic", "Текст" ]
+ATTRIBUTION_ACOUSTIC = [ "Acoustic", "Аудио" ]
+ATTRIBUTION_BEHAVIORAL = [ "Behavioral", "Поведение" ]
+ATTRIBUTION_VISUAL = [ "Visual", "Видео" ]
+ATTRIBUTION_FEATURE_BIN = [ "Group", "Группа" ]
+ATTRIBUTION_FEATURE_BINS = [ "Feature groups", "Группы признаков" ]
+ATTRIBUTION_FEATURE_BINS_HINT = [
+    "The model transforms text, audio, and video into numerical features. The plot groups them into {count} sets.",
+    "Модель преобразует текст, звук и видеоданные в числовые признаки. На графике они объединены в {count} групп.",
+]
+ATTRIBUTION_OF = [ "of", "из" ]
+ATTRIBUTION_VALUE = [ "Contribution to prediction", "Вклад в предсказание" ]
+ATTRIBUTION_ESTIMATED_VALUE = [ "Contribution value", "Значение вклада" ]
+ATTRIBUTION_DIRECTION = [ "Contribution type", "Характер вклада" ]
+ATTRIBUTION_SUPPORTS = [ "Positive contribution", "Положительный вклад" ]
+ATTRIBUTION_OPPOSES = [ "Negative contribution", "Отрицательный вклад" ]
+ATTRIBUTION_NEUTRAL = [ "Contribution near zero", "Вклад близок к нулю" ]
+ATTRIBUTION_DIRECTION_POSITIVE = [ "Positive contribution", "Положительный вклад" ]
+ATTRIBUTION_DIRECTION_NEGATIVE = [ "Negative contribution", "Отрицательный вклад" ]
+ATTRIBUTION_DIRECTION_ZERO = [ "Contribution near zero", "Вклад близок к нулю" ]
+ATTRIBUTION_RELATIVE_MAGNITUDE = [ "Contribution distribution by data type", "Распределение вклада по типам данных" ]
+
+ANALYSIS_SUMMARY = [ "Analysis summary", "Итог анализа" ]
+ANALYSIS_SUMMARY_BADGE = [ "Based on model predictions", "На основе предсказаний модели" ]
+SUMMARY_EMOTION = [ "Emotion", "Эмоциональное состояние" ]
+SUMMARY_PERSONALITY = [ "Personality characteristics", "Персональные качества личности" ]
+SUMMARY_AMBIVALENCE = [ "Ambivalence", "Амбивалентность" ]
+SUMMARY_FINAL = [ "Key findings", "Краткий вывод" ]
+SUMMARY_COPY = [ "Copy summary", "Копировать итог" ]
+SUMMARY_COPIED = [ "Copied", "Скопировано" ]
+
+SUMMARY_EMOTION_NEUTRAL = [ "Neutral", "Нейтральное состояние" ]
+SUMMARY_EMOTION_ANGER = [ "Anger", "Гнев" ]
+SUMMARY_EMOTION_DISGUST = [ "Disgust", "Отвращение" ]
+SUMMARY_EMOTION_FEAR = [ "Fear", "Страх" ]
+SUMMARY_EMOTION_HAPPINESS = [ "Happiness", "Радость" ]
+SUMMARY_EMOTION_SADNESS = [ "Sadness", "Грусть" ]
+SUMMARY_EMOTION_SURPRISE = [ "Surprise", "Удивление" ]
+SUMMARY_AMBIVALENCE_ABSENCE_PHRASE = [ "the absence of ambivalence", "отсутствие амбивалентности" ]
+SUMMARY_AMBIVALENCE_PRESENCE_PHRASE = [ "the presence of ambivalence", "наличие амбивалентности" ]
+SUMMARY_AMBIVALENCE_ABSENCE_SHORT = [ "its absence", "её отсутствие" ]
+SUMMARY_AMBIVALENCE_PRESENCE_SHORT = [ "its presence", "её наличие" ]
+SUMMARY_AMBIVALENCE_ABSENCE_GENITIVE = [ "absence of ambivalence", "отсутствия амбивалентности" ]
+SUMMARY_AMBIVALENCE_PRESENCE_GENITIVE = [ "presence of ambivalence", "наличия амбивалентности" ]
+
+MEDIA_INFO_TITLE = [ "Media information", "Информация о медиафайле" ]
+
+MEDIA_TAB_OVERVIEW = [ "Overview", "Общие сведения" ]
+MEDIA_TAB_VIDEO = [ "Video", "Видео" ]
+MEDIA_TAB_AUDIO = [ "Audio", "Аудио" ]
+MEDIA_TAB_COMPATIBILITY = [ "TACME compatibility", "Совместимость с TACME" ]
+
+MEDIA_INFO_UNAVAILABLE_TITLE = [ "Information unavailable", "Информация недоступна" ]
+MEDIA_INFO_FILENAME = [ "File name", "Имя файла" ]
+MEDIA_INFO_DURATION = [ "Duration", "Длительность" ]
+MEDIA_INFO_FILE_SIZE = [ "File size", "Размер файла" ]
+MEDIA_INFO_CONTAINER = [ "Container", "Контейнер" ]
+MEDIA_INFO_BIT_RATE = [ "Bit rate", "Битрейт" ]
+MEDIA_INFO_STREAMS = [ "Streams", "Потоки" ]
+MEDIA_INFO_RESOLUTION = [ "Resolution", "Разрешение" ]
+MEDIA_INFO_FRAME_RATE = [ "Frame rate", "Частота кадров" ]
+MEDIA_INFO_AUDIO_SUMMARY = [ "Audio", "Аудио" ]
+MEDIA_INFO_CODEC = [ "Codec", "Кодек" ]
+MEDIA_INFO_PROFILE = [ "Profile", "Профиль" ]
+MEDIA_INFO_ASPECT_RATIO = [ "Aspect ratio", "Соотношение сторон" ]
+MEDIA_INFO_PIXEL_FORMAT = [ "Pixel format", "Формат пикселей" ]
+MEDIA_INFO_COLOR_SPACE = [ "Color space", "Цветовое пространство" ]
+MEDIA_INFO_COLOR_RANGE = [ "Color range", "Диапазон цвета" ]
+MEDIA_INFO_COLOR_TRANSFER = [ "Color transfer", "Передаточная характеристика" ]
+MEDIA_INFO_COLOR_PRIMARIES = [ "Color primaries", "Основные цвета" ]
+MEDIA_INFO_SAMPLE_RATE = [ "Sample rate", "Частота дискретизации" ]
+MEDIA_INFO_CHANNELS = [ "Channels", "Число каналов" ]
+MEDIA_INFO_CHANNEL_LAYOUT = [ "Channel layout", "Конфигурация каналов" ]
+MEDIA_INFO_SAMPLE_FORMAT = [ "Sample format", "Формат аудиоданных" ]
+
+MEDIA_CHECK_METADATA = [ "Media metadata can be read", "Метаданные медиафайла доступны" ]
+MEDIA_CHECK_FILE_SIZE = [ "File is not empty", "Файл не пустой" ]
+MEDIA_CHECK_DURATION = [ "Duration is available", "Длительность определена" ]
+MEDIA_CHECK_VIDEO_STREAM = [ "Video stream detected", "Видеопоток обнаружен" ]
+MEDIA_CHECK_VIDEO_DIMENSIONS = [ "Video dimensions are valid", "Размер кадра корректен" ]
+MEDIA_CHECK_AUDIO_STREAM = [ "Audio stream detected", "Аудиопоток обнаружен" ]
+
+[Units]
+SECONDS = [ "s", "с" ]
+FRAMES_PER_SECOND = [ "FPS", "кадр/с" ]
+KILOHERTZ = [ "kHz", "кГц" ]
+CHANNELS_SHORT = [ "ch", "кан." ]
+KILOBYTES = [ "KB", "КБ" ]
+KILOBITS_PER_SECOND = [ "kbps", "кбит/с" ]
+HERTZ = [ "Hz", "Гц" ]
+
+[Tasks]
+EMOTION = [ "Emotion recognition", "Распознавание эмоций" ]
+
+PERSONALITY = [ "Personality traits assessment", "Оценка персональных качеств личности" ]
+
+AMBIVALENCE = [ "Ambivalence recognition", "Распознавание амбивалентности" ]
+
+[About]
+BADGE = [ "Research framework", "Исследовательская система" ]
+FULL_NAME = [
+    "TACME: Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding",
+    "TACME: Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding",
+]
+HERO_DESCRIPTION = [
+    "A task-aware cross-modal expert architecture for multimodal behavioral understanding across disjoint corpora.",
+    "Архитектура task-aware cross-modal experts для мультимодального анализа поведения на раздельных корпусах.",
+]
+
+FLOW_INPUT = [ "Multimodal inputs", "Мультимодальные данные" ]
+FLOW_MODEL = [ "TACME", "TACME" ]
+FLOW_OUTPUT = [ "Behavioral predictions", "Предсказания" ]
+
+FEATURE_CROSS_MODAL_TITLE = [ "Cross-modal experts", "Кросс-модальные эксперты" ]
+FEATURE_CROSS_MODAL_TEXT = [
+    "Directed experts model interactions between complementary modalities.",
+    "Направленные эксперты моделируют взаимодействия между различными модальностями.",
+]
+
+FEATURE_TASK_AWARE_TITLE = [ "Task-aware fusion", "Task-aware объединение" ]
+FEATURE_TASK_AWARE_TEXT = [
+    "Task-specific gates dynamically combine shared cross-modal expert representations.",
+    "Зависящие от задачи механизмы динамически объединяют представления общих кросс-модальных экспертов.",
+]
+
+FEATURE_DISJOINT_TITLE = [ "Disjoint-corpus learning", "Обучение на раздельных корпусах" ]
+FEATURE_DISJOINT_TEXT = [
+    "The framework is designed for behavioral tasks whose annotations originate from different corpora.",
+    "Система предназначена для поведенческих задач, разметка которых представлена в разных корпусах.",
+]
+
+
+[Authors]
+ORDER = [ "ELENA_RYUMINA", "ALEXANDR_AXYONOV", "DMITRY_RYUMIN" ]
+
+NAME_ELENA_RYUMINA = [ "Elena Ryumina", "Рюмина Елена" ]
+
+DEGREE_ELENA_RYUMINA = [ "Dr.", "к.т.н." ]
+
+NAME_ALEXANDR_AXYONOV = [ "Alexandr Axyonov", "Аксёнов Александр" ]
+
+DEGREE_ALEXANDR_AXYONOV = [ "Dr.", "к.т.н." ]
+
+NAME_DMITRY_RYUMIN = [ "Dmitry Ryumin", "Рюмин Дмитрий" ]
+
+DEGREE_DMITRY_RYUMIN = [ "Dr.", "к.т.н." ]
+
+LINK_GITHUB = [ "GitHub", "GitHub" ]
+
+LINK_WEBSITE = [ "Website", "Веб-сайт" ]
+
+LINK_WEB_OF_SCIENCE = [ "Web of Science", "Web of Science" ]
+
+LINK_SCOPUS = [ "Scopus", "Scopus" ]
+
+LINK_GOOGLE_SCHOLAR = [ "Google Scholar", "Google Scholar" ]
+
+LINK_ORCID = [ "ORCID", "ORCID" ]
+
+LINK_HUGGING_FACE = [ "Hugging Face", "Hugging Face" ]
+
+LINK_TELEGRAM = [ "Telegram", "Telegram" ]
+
+LINK_EMAIL = [ "Email", "Эл. почта" ]
+
+
+[Author_ELENA_RYUMINA]
+INITIALS = "ER"
+PHOTO = "elena-ryumina"
+
+LINK_GITHUB = "https://github.com/ElenaRyumina"
+LINK_WEB_OF_SCIENCE = "https://www.webofscience.com/wos/author/record/2779050"
+LINK_SCOPUS = "https://www.scopus.com/authid/detail.uri?authorId=57220572427"
+LINK_GOOGLE_SCHOLAR = "https://scholar.google.com/citations?user=DOBkQssAAAAJ"
+LINK_ORCID = "https://orcid.org/0000-0002-4135-6949"
+LINK_HUGGING_FACE = "https://huggingface.co/ElenaRyumina"
+LINK_TELEGRAM = "https://t.me/ryuminaev"
+LINK_EMAIL = "mailto:evryumina@hse.ru"
+
+
+[Author_ALEXANDR_AXYONOV]
+INITIALS = "AA"
+PHOTO = "alexandr-axyonov"
+
+LINK_GITHUB = "https://github.com/AlexandrAxyonov"
+LINK_WEB_OF_SCIENCE = "https://www.webofscience.com/wos/author/record/2224927"
+LINK_SCOPUS = "https://www.scopus.com/authid/detail.uri?authorId=57203963345"
+LINK_GOOGLE_SCHOLAR = "https://scholar.google.com/citations?user=Hs95wd4AAAAJ"
+LINK_ORCID = "https://orcid.org/0000-0002-7479-2851"
+LINK_TELEGRAM = "https://t.me/MiSTe_R"
+LINK_EMAIL = "mailto:aaxyonov@hse.ru"
+
+
+[Author_DMITRY_RYUMIN]
+INITIALS = "DR"
+PHOTO = "dmitry-ryumin"
+
+LINK_GITHUB = "https://github.com/DmitryRyumin"
+LINK_WEBSITE = "https://dmitryryumin.github.io"
+LINK_WEB_OF_SCIENCE = "https://www.webofscience.com/wos/author/record/K-7989-2018"
+LINK_SCOPUS = "https://www.scopus.com/authid/detail.uri?authorId=57191960214"
+LINK_GOOGLE_SCHOLAR = "https://scholar.google.com/citations?user=LrTIp5IAAAAJ"
+LINK_ORCID = "https://orcid.org/0000-0002-7935-0569"
+LINK_HUGGING_FACE = "https://huggingface.co/DmitryRyumin"
+LINK_TELEGRAM = "https://t.me/dmitry_ryumin"
+LINK_EMAIL = "mailto:neweraairesearch@gmail.com"
+
+
+[Requirements]
+DESCRIPTION = [
+    "Runtime environment and core Python dependencies used by TACME. Installed versions are obtained from the active environment; latest versions are checked against PyPI once per page load.",
+    "Среда выполнения и основные Python-зависимости TACME. Установленные версии определяются из активного окружения; актуальные версии проверяются по PyPI один раз при загрузке страницы.",
+]
+
+SUMMARY_PYTHON = [ "Python runtime", "Среда Python" ]
+
+SUMMARY_DEPENDENCIES = [ "Runtime dependencies", "Зависимости среды выполнения" ]
+
+SUMMARY_SOURCE = [ "Version source", "Источник версий" ]
+
+SUMMARY_SOURCE_META = [ "active environment", "активное окружение" ]
+
+REQUIRED = [ "Required", "Требуется" ]
+
+COLUMN_PACKAGE = [ "Package", "Пакет" ]
+
+COLUMN_PURPOSE = [ "Purpose in TACME", "Назначение в TACME" ]
+
+COLUMN_REQUIREMENT = [ "Required version", "Требуемая версия" ]
+
+COLUMN_INSTALLED = [ "Installed", "Установлено" ]
+
+COLUMN_LATEST = [ "Latest", "Актуальная" ]
+
+COLUMN_STATUS = [ "Status", "Статус" ]
+
+PURPOSE_GRADIO = [ "Web application interface", "Веб-интерфейс приложения" ]
+
+PURPOSE_PACKAGING = [ "PEP 440/508 requirement and version validation", "Проверка требований и версий по PEP 440/508" ]
+
+PURPOSE_PSUTIL = [ "Runtime system and process information", "Информация о системе и процессах среды выполнения" ]
+
+PURPOSE_GENERIC = [ "TACME runtime dependency", "Зависимость среды выполнения TACME" ]
+
+PURPOSE_SAFETENSORS = [ "Safe model weight loading", "Безопасная загрузка весов модели" ]
+
+PURPOSE_TORCH = [
+    "Neural network inference and tensor operations",
+    "Инференс нейросетевой модели и операции с тензорами",
+]
+
+PURPOSE_TRANSFORMERS = [
+    "Pretrained multimodal feature extraction",
+    "Извлечение мультимодальных признаков предобученными моделями",
+]
+
+PURPOSE_QWEN_VL_UTILS = [ "Qwen3-VL visual and video preprocessing", "Предобработка изображений и видео для Qwen3-VL" ]
+
+PURPOSE_TORCHVISION = [
+    "Computer vision operations for visual model preprocessing",
+    "Операции компьютерного зрения для предобработки визуальных моделей",
+]
+
+PURPOSE_TORCHCODEC = [
+    "Video decoding for multimodal model preprocessing",
+    "Декодирование видео для предобработки мультимодальных моделей",
+]
+
+PURPOSE_PILLOW = [ "Image representation and frame preprocessing", "Представление изображений и предобработка кадров" ]
+
+STATUS_CURRENT = [ "Current", "Актуальна" ]
+
+STATUS_UPDATE_AVAILABLE = [ "Update available", "Доступно обновление" ]
+
+STATUS_CONSTRAINED = [ "Version constrained", "Версия ограничена" ]
+
+STATUS_MISSING = [ "Missing", "Не установлена" ]
+
+STATUS_INCOMPATIBLE = [ "Incompatible", "Несовместима" ]
+
+STATUS_UNAVAILABLE = [ "Unavailable", "Недоступно" ]
+
+CHECKING_LATEST = [ "Checking latest version", "Проверка актуальной версии" ]
+
+VALUE_UNAVAILABLE = [ "Unavailable", "Недоступно" ]
+
+LAST_CHECKED = [ "Last checked", "Последняя проверка" ]
+
+FOOTER = [
+    "Installed versions are obtained from the active TACME environment. Latest versions are checked against PyPI once per page load. Reload the page to run a new check.",
+    "Установленные версии определяются из активного окружения TACME. Актуальные версии проверяются по PyPI один раз при загрузке страницы. Для новой проверки перезагрузите страницу.",
+]

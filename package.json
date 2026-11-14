@@ -1,0 +1,35 @@
+{
+    "name": "tacme-app",
+    "version": "1.0.0",
+    "description": "Development tooling for TACME: Task-Aware Cross-Modal Experts for Disjoint-Corpus Multimodal Behavioral Understanding.",
+    "private": true,
+    "engines": {
+        "node": ">=26.8.2 <27",
+        "npm": ">=11.20.0 <12"
+    },
+    "packageManager": "npm@11.20.0",
+    "scripts": {
+        "format": "npm run lint:css:fix && prettier --write . && taplo fmt",
+        "format:check": "npm run lint:css && prettier --check . && taplo fmt --check",
+        "lint:css": "stylelint \"styles/**/*.css\"",
+        "lint:css:fix": "stylelint \"styles/**/*.css\" --fix",
+        "lint:toml": "taplo lint",
+        "build:css": "lightningcss --bundle --minify --browserslist styles/app.css -o app.css",
+        "build:images": "node scripts/optimize_images.mjs",
+        "check:images": "node scripts/optimize_images.mjs --check"
+    },
+    "devDependencies": {
+        "@taplo/cli": "0.7.0",
+        "lightningcss-cli": "1.33.0",
+        "prettier": "3.9.10",
+        "sharp": "0.35.5",
+        "stylelint": "17.16.0",
+        "stylelint-config-recess-order": "7.9.0",
+        "stylelint-config-standard": "40.0.0",
+        "stylelint-order": "8.1.2"
+    },
+    "allowScripts": {
+        "lightningcss-cli@1.33.0": true,
+        "sharp@0.35.5": true
+    }
+}

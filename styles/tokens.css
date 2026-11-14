@@ -1,0 +1,13 @@
+:root {
+    --tacme-color-accent: #ff7a1a;
+    --tacme-color-danger: #ef4444;
+    --tacme-color-success: #32d583;
+    --tacme-color-warning: #fbbf24;
+    --tacme-radius-xs: 4px;
+    --tacme-radius-sm: 6px;
+    --tacme-radius-md: 8px;
+    --tacme-radius-lg: 10px;
+    --tacme-radius-xl: 12px;
+    --tacme-radius-pill: 999px;
+    --tacme-icon-size: 20px;
+}

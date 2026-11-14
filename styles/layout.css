@@ -1,0 +1,79 @@
+/* App layout */
+
+div.app-shell {
+    position: relative;
+    width: 100%;
+    padding: 0 32px 32px;
+}
+
+/* Tabs */
+
+div.app-tabs {
+    padding-top: 0;
+    margin-top: 24px;
+}
+
+/* Main tab icons */
+
+div.app-tabs button[role="tab"] {
+    display: inline-flex !important;
+    gap: 7px !important;
+    align-items: center !important;
+}
+
+div.app-tabs button[role="tab"]::before {
+    display: inline-block !important;
+    flex: 0 0 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    content: "" !important;
+    background-color: currentcolor !important;
+    mask-repeat: no-repeat !important;
+    mask-position: center !important;
+    mask-size: contain !important;
+}
+
+/* Application */
+
+div.app-tabs button[role="tab"]:nth-of-type(1)::before {
+    mask-image: url("/gradio_api/file=static/images/icons/layout-2.svg") !important;
+}
+
+/* About */
+
+div.app-tabs button[role="tab"]:nth-of-type(2)::before {
+    mask-image: url("/gradio_api/file=static/images/icons/bulb.svg") !important;
+}
+
+/* About the Authors */
+
+div.app-tabs button[role="tab"]:nth-of-type(3)::before {
+    mask-image: url("/gradio_api/file=static/images/icons/users.svg") !important;
+}
+
+/* Requirements */
+
+div.app-tabs button[role="tab"]:nth-of-type(4)::before {
+    mask-image: url("/gradio_api/file=static/images/icons/affiliate.svg") !important;
+}
+
+/* Tab content */
+
+div.app-tab h1,
+div.about-tab h1,
+div.authors-tab h1,
+div.requirements-tab h1 {
+    margin-top: 0;
+}
+
+/* Mobile */
+
+@media (width <= 768px) {
+    div.app-shell {
+        padding: 0 16px 24px;
+    }
+
+    div.app-tabs {
+        margin-top: 12px;
+    }
+}
