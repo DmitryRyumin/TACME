@@ -507,7 +507,7 @@ def _build_badge_block() -> str:
             ),
         ),
         (
-            "Application",
+            "Hugging Face",
             _build_application_badges(
                 metadata,
             ),
